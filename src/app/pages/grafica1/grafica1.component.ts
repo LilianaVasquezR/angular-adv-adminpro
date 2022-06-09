@@ -17,4 +17,6 @@ export class Grafica1Component  {
       { data: [ 10, 15, 40 ]},
     ]
   };
+
+  
 }

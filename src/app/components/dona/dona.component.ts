@@ -17,6 +17,8 @@ export class DonaComponent  {
     datasets: [
       { data: [ 350, 450, 100 ],
         backgroundColor:['#6857E6', '#009FEE','#F02059'], //agregue el color de la grafica
+        hoverBackgroundColor: ['#7d6eef', '#5ec0ed','#ef7c9b'],//para hacer el hover
+        hoverBorderColor:['#FFFFFF','#FFFFFF','#FFFFFF']
        },
     ]
   };
