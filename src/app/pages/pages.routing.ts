@@ -1,6 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
+import { AuthGuard } from '../guards/auth.guard';
+
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -13,6 +15,7 @@ const routes: Routes = [
     { 
         path:'dashboard',  // se queda como ruta por defecto 'dashboard' 
         component: PagesComponent,
+        canActivate: [ AuthGuard ],
         children: [
             { path: '', component: DashboardComponent, data: { titulo: 'Dashboard' } }, // se debe quedar vacio por el dashboard ya esta como ruta por defecto
             { path: 'progress', component: ProgressComponent, data: { titulo: 'ProgressBar' } },  // data: { titulo: 'Dashboard' } se utiliza para cambiar los titulos de cada pagina
