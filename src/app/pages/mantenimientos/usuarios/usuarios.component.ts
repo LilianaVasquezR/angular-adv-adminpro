@@ -36,9 +36,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
     this.cargarUsuarios();
 
     this.imgSubs = this.modalImagenService.nuevaImagen
-    .pipe(
-      delay(100)
-    )
+    .pipe(delay(100))
       .subscribe( img => this.cargarUsuarios() );// se suscribe al observable nueva imagen
   }
 
@@ -70,13 +68,14 @@ export class UsuariosComponent implements OnInit, OnDestroy {
     if ( termino.length === 0 ) {
        this.usuarios = this.usuariosTemp;
     }
+    if( termino.length > 0 ) {
+      this.busquedasService.buscar( 'usuarios', termino )
+      .subscribe( (resp: any )=> {
 
-    this.busquedasService.buscar( 'usuarios', termino )
-        .subscribe( resp => {
+        this.usuarios = resp;
 
-          this.usuarios = resp;
-
-        });
+      });
+    }
   }
 
   eliminarUsuario( usuario: Usuario ) {
