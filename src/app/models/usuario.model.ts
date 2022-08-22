@@ -8,9 +8,9 @@ export class Usuario {
        public nombre: string,
        public email: string,
        public password?: string,
-       public img?: string,//opcional lo marca ?
+       public img?: string | any,//opcional lo marca ?
        public google?: boolean,//opcional
-       public role?: string,//opcional
+       public role?: 'ADMIN_ROLE' | 'USER_ROLE',
        public uid?: string,//opcional
     ) {}
 
